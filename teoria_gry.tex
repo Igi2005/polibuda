@@ -1,0 +1,167 @@
+\documentclass[12pt]{article}
+\author{\textbf{Igor Rewers}}
+\title{\textbf{Teoria gier}}
+\date{\today}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{lmodern}
+\usepackage{mathptmx}
+\usepackage{amsthm,amsfonts}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\begin{document}
+%Dodanie autora tytułu i daty
+\maketitle
+
+\section{Teoria gier w matematyce — matematyka decyzji i strategii.}
+Teoria gier to dział matematyki, który zajmuje się analizą sytuacji, w których wynik zależy od decyzji kilku uczestników (zwanych graczami), z których każdy dąży do osiągnięcia własnych celów. Choć nazwa może sugerować zabawę, teoria gier ma poważne zastosowania — od ekonomii i informatyki po biologię, politykę, a nawet psychologię.
+\\
+%kursywa
+\emph{Ciekawostka: Teoria gier wywodzi się z badania gier hazardowych, i taka jest też jej terminologia}
+
+\section{Historia teorii gier.}
+Początki teorii gier sięgają XIX wieku, ale jej formalne podstawy opracowali John von Neumann i Oskar Morgenstern w książce \emph{Theory of Games and Economic Behavior (1944}). To właśnie tam po raz pierwszy opisano gry w sposób ścisły matematyczny, tworząc fundament pod współczesne badania nad decyzjami strategicznymi.
+W latach 50. XX wieku duży wkład w rozwój tej teorii wniósł John Nash, który wprowadził pojęcie równowagi Nasha — jednego z najważniejszych konceptów w całej teorii gier.
+
+\section{Definicja gry.}
+Gra to dowolna sytuacja konfliktowa, gracz natomiast to dowolny jej uczestnik. Graczem może być na przykład człowiek, przedsiębiorstwo lub zwierzę. Każda strona wybiera pewną strategię postępowania, po czym zależnie od strategii własnej oraz innych uczestników każdy gracz otrzymuje wypłatę w jednostkach użytecznośc. Zależnie od gry jednostki te mogą reprezentować pieniądze, wzrost szansy na przekazanie własnych genów czy też cokolwiek innego, z czystą satysfakcją włącznie. Wynikowi gry zwykle przyporządkowuje się pewną wartość liczbową. Teoria gier bada, jakie strategie powinni wybrać gracze, żeby osiągnąć najlepsze wyniki.
+\\ \textbf{Przyklady gier:}
+%przejscie do nowej lini
+\begin{itemize}
+\item \textbf{Gra w orzeł czy reszka} – przykład gry o sumie zerowej, w której zysk jednego gracza to strata drugiego.
+\item \textbf{Kamień–papier–nożyce} – gra symetryczna, w której żadna strategia nie daje przewagi; najlepsze jest losowanie.
+\end{itemize}
+
+\section{Klasyfikacja gier.}
+\begin{itemize}
+\item \textbf{Liczba graczy} – gry dwuosobowe lub wieloosobowe
+\item \textbf{Suma wypłat} – gry o sumie zerowej (zysk jednego to strata drugiego) \\ i o sumie niezerowej (wszyscy mogą zyskać lub stracić),
+\item \textbf{Informacja} – gry z pełną informacją (wszyscy znają możliwe ruchy i wypłaty) i niepełną informacją,
+\item \textbf{Kolejność ruchów} – gry statyczne (wszyscy wybierają naraz) i dynamiczne (ruchy wykonywane kolejno).
+\item \textbf{Gry sprawiedliwe} (gdy wartość oczekiwana wypłaty każdego z graczy jest taka sama) oraz \textbf{gry niesprawiedliwe} (gdy wartość oczekiwana wypłaty graczy jest różna – najwyższa wygrana jednego z graczy przewyższa najwyższą wygraną drugiego gracza) 
+\item \textbf{Gry o skończonym i nieskończonym czasie rozgrywki.}
+\end{itemize}
+
+\section{Gra dwuosobowa o sumie zerowej.}
+\textbf{Czym jest gra zerowa?}
+\\
+Dwuosobowa gra o sumie zerowej to po prostu gra w której biorą udział 2 osoby, firmy czy zespoły. Jedna strona wygrywa tyle ile przegrywa druga. Jeśli gracz A wygrywa 200zł, to gracz B przegrywa 200. Nie ma powodu, by gracz A współpracował z graczem B. Chodzi tylko o czystą konkurencję, są tylko wygrani \\ i przegrani. Inaczej można to ująć, że A wygrał 200, a B wygrał -200. Stąd pochodzi określenie „suma zerowa” bo 200+(-200) = 0.
+\\
+\emph{Ciekawostka: John von Neumann w taksówce „nabazgrał” na kartce papieru twierdzenie o minimaksie , które polega na minimalizacji maksymalnej wygranej przeciwnika w grze o sumie zerowej}
+\\
+\begin{center} $U_{a} + U_{b} = 0$ \end{center}
+
+\emph{$U_{a}-wypłata\ gracza a,  U_{b}-wypłata\ gracza b$}
+\\
+\textbf{Strategia czysta i mieszana:}
+\begin{itemize}
+\item \textbf{Strategia czysta}: gracz zawsze wybiera jedną konkretną strategię.
+\item \textbf{Strategia mieszana}: gracz losuje strategię zgodnie z pewnym rozkładem prawdopodobieństwa.
+\end {itemize}
+Niech
+\begin{center}
+\begin{equation}
+p_i \ge 0, \quad \sum_{i=1}^{m} p_i = 1
+\end{equation}
+\end{center}
+oznacza prawdopodobieństwo, z jakim gracz A wybiera strategie \emph{i}, oraz
+\begin{equation}
+q_i \ge 0, \quad \sum_{j=1}^{n} q_j = 1
+\end{equation}
+oznacza prawdopodobieństwo, z jakim gracz B wybiera strategie \emph{j}
+\\
+\textbf{Oczekiwana wartość gry:}
+\\
+Jeśli obaj gracze wybierają strategie losowo, wartość oczekiwana wypłaty dla gracza A wynosi:
+\\
+\begin{center}
+
+\begin{equation}
+E(p,q) =  \sum_{i=1}^{m}  \sum_{j=1}^{n} a_{ij}p_{i}q_{j}
+\end{equation}
+\end{center}
+Gracz A chce \textbf{maksymalizować} tę wartość, natomiast gracz B - \textbf{minimalizować}
+\\
+\\
+\textbf{Twierdzenie minimaksowe von Neumanna:}
+\\
+Fundamentem teorii gier o sumie zerowej jest twierdzenie minimaksowe, które mówi:
+\\
+\begin{equation}
+\displaystyle  \max_{p} \displaystyle \min_{q} E(p,q) = \displaystyle \min_{q} \displaystyle \max_{p} E(p,q)
+\end{equation}
+Oznacza ono, że istnieje pewna wartość gry v, przy której:
+\begin{itemize}
+\item gracz A, wybierając najlepszą strategię, gwarantuje sobie conajmniej v
+\item gracz B, wybierając najlepszą strategię, nie pozwoli A wygrać więcej niż v
+\end{itemize}
+Ta wartość v to właśnie \textbf{wartość gry}.
+\begin{equation}
+\displaystyle v = \max_{p} \displaystyle \min_{q} E(p,q) = \displaystyle \min_{q} \displaystyle \max_{p} E(p,q)
+\end{equation}
+\\
+Wyobraźmy sobie dwie stacje telewizyjne ATV i BTV konkurujące o prawa do nadawania kanału w dwóch krajach. Każda z nich może wystąpić o koncesję tylko w dwóch krajach. Każda z nich może wystąpić o koncesję tylko w jednym z dwóch krajów, a  ich wybór powinien wynikać z oszacowania przyrostu liczby widzów.
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{|l|c|c|}
+\hline
+ & Szkocja & Anglia \\ \hline
+Szkocja & 5 & -3 \\ \hline
+Anglia & 2 & 4 \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+\\
+\\
+Gdy obaj gracze wybiorą Szkocja ATV wygrywa 5 punktów, a BTV traci 5 punktów. Znak minus przy wypłacie oznacza stratę ATV. Dodatnie wypłaty ze znakiem + są dobre dla ATV, a wypłaty ujemne są dobre dla BTV.
+\\
+\\
+\textbf{Stretegia czysta:}
+\\
+Gracz ATV wybiera \textbf{wiersz}, a BTV \textbf{kolumnę}
+\\ \textbf{Dla ATV:}
+\\
+Sprawdzamy\textbf{ najgorszy wynik} (bo przeciwnik BTV chce mu zaszkodzić):
+\begin{itemize}
+\item Jeśli ATV wybierze Szkocja → minimalny zysk = \textbf{min(5, -3) = -3}
+\item Jeśli ATV wybierze Anglia → minimalny zysk =  \textbf{min(2, 4) = 2}
+\end{itemize}
+ATV wybiera strategię, która maksymalizuje ten minimalny wynik (maximin): Max(-3,2) = 2
+Czyli najlepsza strategia dla ATV (w sensie strategii czystych) to Anglia,
+a gwarantowany zysk wynosi 2.
+\\
+\\
+\textbf{Dla BTV:}
+\\
+BTV chce \textbf{minimalizować wypłatę ATV} (czyli maksymalizować stratę ATV).
+Sprawdzamy \textbf{maksymalny wynik} w każdej kolumnie (czyli najgorszy scenariusz dla BTV):
+\begin{itemize}
+\item Jeśli BTV wybierze Szkocja → maksymalna wypłata ATV = \textbf{max(5, 2) = 5}
+\item Jeśli BTV wybierze Anglia → maksymalna wypłata ATV = \textbf{max(-3, 4) = 4}
+\end{itemize}
+BTV wybiera \textbf{minimax}: Min(5,4) = 4
+\\
+\textbf{Porównanie:}
+\
+\\
+Maximin = 2 i minimax = 4,
+ponieważ 2 $ \neq $ 4 \textbf{nie ma równowagi w strategiach czystych}.
+To oznacza, że gracze powinni stosować \textbf{strategie mieszane} (czyli losowe).
+
+\begin{thebibliography}{9}
+
+\bibitem{chatgpt}
+ChatGPT, OpenAI.
+
+\bibitem{crilly2009} 
+Crilly, T. (2009). \textit{50 teorii matematyki, które każdy powinien znać}. PWN, Warszawa.
+
+\bibitem{wikipedia}
+\href{https://pl.wikipedia.org/wiki/Teoria\_gier}{Wikipedia.org.}
+
+\end{thebibliography}
+
+
+\end{document}
