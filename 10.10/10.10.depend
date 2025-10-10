@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1760097574 source:c:\users\student\desktop\10.10\10.10\main.cpp
+	<iostream>
+	<time.h>
+
